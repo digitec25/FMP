@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US"><head><!-- Created by Artisteer v4.0.0.58475 -->
+    <meta charset="utf-8">
+    <title>Contáctenos</title>
+    <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <link rel="stylesheet" href="style.css" media="screen">
+    <!--[if lte IE 7]><link rel="stylesheet" href="style.ie7.css" media="screen" /><![endif]-->
+    <link rel="stylesheet" href="style.responsive.css" media="all">
+
+
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+    <script src="script.responsive.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+
+
+</head>
+<body>
+<div id="art-main">
+    <div class="art-sheet clearfix">
+<header class="art-header clearfix">
+
+
+    <div class="art-shapes">
+
+<div class="art-object1959604682" data-left="1.63%"></div>
+
+            </div>
+
+                
+                    
+</header>
+<nav class="art-nav clearfix">
+    <ul class="art-hmenu"><li><a href="inicio.html">Inicio</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="testimonios.html">Testimonios</a></li><li><a href="contacto.html" class="active">Contacto</a></li></ul> 
+    </nav>
+<div class="art-layout-wrapper clearfix">
+                <div class="art-content-layout">
+                    <div class="art-content-layout-row">
+                        <div class="art-layout-cell art-content clearfix"><article class="art-post art-article">
+                                
+                                                
+                            <h2 style="text-align: center;"><span style="color: rgb(248, 241, 160); font-weight: bold;">Zonas donde llegamos</span></h2>
+                        <br><br>
+                <div id="map"></div>
+                <script>
+                    // Coordenadas de las ciudades donde se ofrece el servicio
+                    var cities = [
+                        { name: "Asunción", lat: -25.2637, lng: -57.5759 },
+                        { name: "San Lorenzo", lat: -25.3455, lng: -57.5097 },
+                        { name: "Areguá", lat: -25.3121, lng: -57.3846 },
+                        { name: "Limpio", lat: -25.1504, lng: -57.4854 },
+                        { name: "Mariano Roque Alonso", lat: -25.2203, lng: -57.5366 },
+                        { name: "Luque", lat: -25.2676, lng: -57.4915 },
+                        { name: "San Bernardino", lat: -25.3106, lng: -57.2961 },
+                        { name: "Itá", lat: -25.4772, lng: -57.3731 },
+                        { name: "Capiatá", lat: -25.3552, lng: -57.4453 },
+                        { name: "Itauguá", lat: -25.3852, lng: -57.3336 },
+                        { name: "Ypané", lat: -25.4750, lng: -57.4422 },
+                        { name: "Lambaré", lat: -25.3462, lng: -57.6081 }
+                    ];
+                
+                    // Inicializar el mapa centrado en Paraguay
+                    var map = L.map('map').setView([-25.3, -57.5], 11);
+                
+                    // Agregar capa de mapa base (OpenStreetMap)
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; OpenStreetMap contributors'
+                    }).addTo(map);
+                
+                    // Agregar banderitas en cada ciudad
+                    cities.forEach(city => {
+                        L.marker([city.lat, city.lng], {
+                            icon: L.icon({
+                                iconUrl: 'https://cdn-icons-png.flaticon.com/32/684/684908.png', // Ícono de banderita
+                                iconSize: [32, 32],
+                                iconAnchor: [16, 32]
+                            })
+                        }).addTo(map)
+                        .bindPopup(city.name);
+                    });
+                </script>
+</article></div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+   <!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/+595991189696" target="_blank" class="whatsapp-float">
+    <img src="https://cdn-icons-png.flaticon.com/32/220/220236.png" alt="WhatsApp">
+    <span class="tooltip-text">Contacte con nosotros</span>
+</a>
+
+<style>
+    .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    .whatsapp-float img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .whatsapp-float:hover img {
+        transform: scale(1.1);
+    }
+
+    /* Tooltip */
+    .tooltip-text {
+        visibility: hidden;
+        width: 100px;
+        background-color: #25d366;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        right: 70px;
+        bottom: 15px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+    }
+
+    .whatsapp-float:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+</style>
+
+<style>
+    .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 70px;
+        height: 70px;
+        z-index: 1000;
+        animation: floatRotate 5s infinite ease-in-out;
+    }
+
+    .whatsapp-float img {
+        width: 60%;
+        height: 60%;
+        /*border-radius: 30%; */
+        box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    
+</style>
+            <footer class="art-footer clearfix">
+                <div class="social-container">
+                    <div class="social-icons">
+                        <a href="https://wa.me/+595991189696" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/32/220/220236.png" alt="WhatsApp">
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100089657584636" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/32/733/733547.png" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/fletes.mudanzas.perera1/" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/32/2111/2111463.png" alt="Instagram">
+                        </a>
+                    </div>
+                </div>
+                
+                <style>
+                    .social-container {
+                        width: 100%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        position: relative;
+                    }
+                
+                    .social-icons {
+                        display: inline-block;
+                        white-space: nowrap;
+                        animation: moveIcons 8s linear infinite;
+                    }
+                
+                    .social-icons a {
+                        display: inline-block;
+                        margin: 0 20px;
+                    }
+                
+                    @keyframes moveIcons {
+                        from {
+                            transform: translateX(-100%);
+                        }
+                        to {
+                            transform: translateX(100%);
+                        }
+                    }
+                </style>
+            <br>
+<p>Copyright © 2025. All Rights Reserved Fletes y Mudanzas Perera.<br></p>
+</footer>
+
+    </div>
+</div>
+
+
+</body></html>
